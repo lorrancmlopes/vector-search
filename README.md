@@ -5,7 +5,8 @@ It includes city names and the top attractions with descriptions for each one of
 
 We generated embeddings for the attraction descriptions using BERT's pre-trained model to obtain token embeddings. We applied mean-pooling over the token embeddings to produce fixed-length sentence embeddings of 768 dimensions. Then, we trained a denoising autoencoder neural network with three hidden layers (512, 256, 128 neurons) to reduce the embedding dimensions and enhance relevance to our dataset. The model used ReLU activation functions and the Adam optimizer with a learning rate of 0.001.
 
-![alt text](image.png)
+<p align="center"><img src="image.png" alt="alt text" width="350"></p>
+
 
 We trained the denoising autoencoder by corrupting the input embeddings with Gaussian noise. The network learned to reconstruct the original embeddings from the noisy inputs using the Mean Squared Error (MSE) loss function, defined as:
 
@@ -20,11 +21,6 @@ where $x_i$ is the original embedding and $x'_i$ is the reconstructed embedding.
 
 ![alt text](<2024110715321-ezgif.com-crop (1).gif>)
 
-
-<img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2hwcmh1bTYweHcxa2Vkem5mMDAyeG13Mmh0OTNndDh0aHlsNGlrNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/JMyRHpLNpk5ysLi5mg/giphy.gif" width="100%">
-
-
-<p align="center"><img src='https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2hwcmh1bTYweHcxa2Vkem5mMDAyeG13Mmh0OTNndDh0aHlsNGlrNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/JMyRHpLNpk5ysLi5mg/giphy.gif'></img></p>
 
 #### What can we see?
 
