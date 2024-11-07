@@ -41,13 +41,13 @@ However, in the second image showing the tuned embeddings, the clusters appear t
 
 2. **Test that yields less than 10 results**:
     
-    [http://10.103.0.28:9876/query?query=Bavaria](http://10.103.0.28:9876/query?query=Gardens)
+    [http://10.103.0.28:9876/query?query=Gardens](http://10.103.0.28:9876/query?query=Gardens)
     
    - Searching for "Gardens" returns fewer than 10 results.
 
 3. **Test that yields something non-obvious**:
     
-    [http://10.103.0.28:9876/query?query=Oktoberfest](http://10.103.0.28:9876/query?query=Football)
+    [http://10.103.0.28:9876/query?query=Football](http://10.103.0.28:9876/query?query=Football)
 
     - Searching for "Football" returns a city in Ukraine.
 
