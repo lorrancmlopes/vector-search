@@ -22,17 +22,42 @@ where $x_i$ is the original embedding and $x'_i$ is the reconstructed embedding.
 ![alt text](<2024110715321-ezgif.com-crop (1).gif>)
 
 
-#### What can we see?
+### What can we see?
 
 In our visualization of the embeddings, we observe that the pre-trained embeddings form slightly better-defined clusters compared to the tuned embeddings. Clusters are evident in both visualizations, and they appear to be grouped by country or the language spoken in the cities. For example, in the plots (or GIF), we can see distinct clusters where the cities are from Brazil and others where the cities are from Germany. These clusters are present in both the pre-trained and tuned embeddings visualizations.
 
 However, in the second image showing the tuned embeddings, the clusters appear to be less tightly grouped. This suggests that the tuning process may have dispersed the clusters somewhat, leading to less pronounced groupings.
 
+## Using it
+
+- If you are connected to [Insper](https://www.insper.edu.br/en/home)'s WiFi network, use these links below:
+### Example Requests
+
+1. **Test that yields 10 results**:
+    
+    [http://10.103.0.28:9876/query?query=Oktoberfest](http://10.103.0.28:9876/query?query=Oktoberfest)
+   
+   - Searching for "Oktoberfest" returns up to 10 cities in Germany.
+
+2. **Test that yields less than 10 results**:
+    
+    [http://10.103.0.28:9876/query?query=Bavaria](http://10.103.0.28:9876/query?query=Gardens)
+    
+   - Searching for "Gardens" returns fewer than 10 results.
+
+3. **Test that yields something non-obvious**:
+    
+    [http://10.103.0.28:9876/query?query=Oktoberfest](http://10.103.0.28:9876/query?query=Football)
+
+    - Searching for "Football" returns a city in Ukraine.
 
 ## MLOPs Specialist:
 
 The system is deployed to our server and it gives a response in less than one second.
-Also, theres is a new endpoint to update the files used by the model.
+
+![image](https://github.com/user-attachments/assets/ba9ccf41-0264-4d80-b077-2c27acaa8b59)
+
+Also, there is a new endpoint to update the files used by the model.
 The endpoint is `/update_model`. It is a GET request that accepts `encoder_url` and `embeddings_url` as query parameters. This will allow you to test the update functionality directly from a browser by entering the URLs in the address bar.
 I used the same files, but on Google Drive, so we could test it like this:
 
