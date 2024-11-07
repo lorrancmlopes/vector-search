@@ -64,4 +64,37 @@ I used the same files, but on Google Drive, so we could test it like this:
 ```
 http://10.103.0.28:9876/update_model?encoder_url=https://drive.usercontent.google.com/u/0/uc?id=1xW-cZD0ON7Ad8BowI_GGwZ0T1uiEbXXj&export=download&embeddings_url=https://drive.usercontent.google.com/u/0/uc?id=1lB4izQ5oy09Od6Jdr7keoJ4Z8fZeiWqr&export=download
 ```
+```py
+@app.get("/update_model")
+def update_model(
+    encoder_url: str = Query(..., description="URL to download encoder.pth"),
+    embeddings_url: str = Query(..., description="URL to download tuned_embeddings.npy")
+):
+    encoder_path = '../data/encoder.pth'
+    embeddings_path = '../data/tuned_embeddings.npy'
+    
+    try:
+        encoder_response = requests.get(encoder_url, timeout=10)
+        encoder_response.raise_for_status()
+        with open(encoder_path, 'wb') as f:
+            f.write(encoder_response.content)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Failed to download encoder: {e}")
+    
+    try:
+        embeddings_response = requests.get(embeddings_url, timeout=10)
+        embeddings_response.raise_for_status()
+        with open(embeddings_path, 'wb') as f:
+            f.write(embeddings_response.content)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Failed to download embeddings: {e}")
+    
+    try:
+        load_encoder()
+        load_embeddings()
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to reload model and embeddings: {e}")
+    
+    return {"message": "Model and embeddings updated successfully"}
 
+```
