@@ -33,9 +33,10 @@ However, in the second image showing the tuned embeddings, the clusters appear t
 
 The system is deployed to our server and it gives a response in less than one second.
 Also, theres is a new endpoint to update the files used by the model.
-The endpoint is `/update_model`. It is a GET request that accepts``encoder_url` and `embeddings_url` as query parameters. This will allow you to test the update functionality directly from a browser by entering the URLs in the address bar.
+The endpoint is `/update_model`. It is a GET request that accepts `encoder_url` and `embeddings_url` as query parameters. This will allow you to test the update functionality directly from a browser by entering the URLs in the address bar.
 I used the same files, but on Google Drive, so we could test it like this:
 
-http://127.0.0.1:8000/update_model?encoder_url=https://drive.usercontent.google.com/u/0/uc?id=1xW-cZD0ON7Ad8BowI_GGwZ0T1uiEbXXj&export=download&embeddings_url=https://drive.usercontent.google.com/u/0/uc?id=1lB4izQ5oy09Od6Jdr7keoJ4Z8fZeiWqr&export=download
-
+```
+http://10.103.0.28:9876/update_model?encoder_url=https://drive.usercontent.google.com/u/0/uc?id=1xW-cZD0ON7Ad8BowI_GGwZ0T1uiEbXXj&export=download&embeddings_url=https://drive.usercontent.google.com/u/0/uc?id=1lB4izQ5oy09Od6Jdr7keoJ4Z8fZeiWqr&export=download
+```
 
